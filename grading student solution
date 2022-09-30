@@ -1,0 +1,15 @@
+def gradingStudents(grades):
+    # Write your code here
+  
+    A=[]
+    for i in grades:
+         if  i < 38:
+            A.append(i)
+         elif i>=38 and i<=100:
+            dif = i%5
+            if 5-dif >=3:
+                 A.append(i)
+            elif 5-dif <=2 :
+                 i+= (5-dif)
+                 A.append(i)
+    return A  
