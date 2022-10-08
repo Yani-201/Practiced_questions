@@ -1,0 +1,13 @@
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        for k in range(len(nums)):
+            temp=nums[k]
+            for j in range (k+1,len(nums)):
+                if nums[j] < nums[k]:
+                    nums[k], nums[j] = nums[j], nums[k]
+        
+        ans=[]
+        for i in range(len(nums)):
+            if nums[i]==target:
+                ans.append(i)
+        return ans   
