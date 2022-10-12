@@ -1,0 +1,16 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        maps= {}
+        no_greater= []
+        ans=[0]*len(nums1)
+        
+        for i in range(len(nums2)):
+            maps[nums2[i]] = -1
+        for i in range(len(nums2)):
+            while len(no_greater)> 0 and nums2[i]>no_greater[-1]:
+                x=no_greater.pop()
+                maps[x]=nums2[i]
+            no_greater.append(nums2[i])
+        for i in range(len(nums1)):
+            ans[i] = maps[nums1[i]]
+        return ans
