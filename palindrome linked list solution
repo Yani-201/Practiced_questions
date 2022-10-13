@@ -1,0 +1,21 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        global first
+        first = head
+
+        def check(last) -> bool:
+            global first
+            if not last:
+                return True
+            element = check(last.next)  #recursively find last element and move backwards
+            
+            equality = (first.val == last.val)
+            first = first.next
+            
+            return element and equality
