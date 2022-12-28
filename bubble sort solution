@@ -16,7 +16,7 @@ def swap (a,x,y):
     a[x]=a[y]
     a[y]=temp
     
-
+xx
 if __name__ == '__main__':
     n = int(input().strip())
 
