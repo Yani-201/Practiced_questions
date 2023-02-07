@@ -1,4 +1,4 @@
-def countingSort(A):
+def countingSort(arr):
     out = [0]*100
     for i in arr:
         out[i]+=1
