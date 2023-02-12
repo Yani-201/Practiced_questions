@@ -11,4 +11,4 @@ class Solution:
                 elif i == "-": s.append(b-a)
                 elif i == "*": s.append(b*a)
                 elif i=="/": s.append(trunc(b/a))
-        return s[0]
+        return int(s[0])
