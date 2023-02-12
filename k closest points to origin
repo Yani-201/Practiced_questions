@@ -1,0 +1,10 @@
+class Solution:
+    from math import sqrt
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        #  Points with distances
+        points_with_distance = [(point, sqrt(point[0]**2 + point[1]**2)) for point in points]
+        # Sort the points based on the distance
+        points_with_distance.sort(key=lambda x:x[1])
+
+        # Return the k points 
+        return [point[0] for point in points_with_distance[:k]]
