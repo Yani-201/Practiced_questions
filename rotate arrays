@@ -3,15 +3,31 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        
+        ###optional(not a two pointer solution)
+        # k%=len(nums)
+        # nums[:]=nums[(len(nums)-k):] + nums[:(len(nums)-k)] 
 
-        remain = k % len(nums)
+        
+        k = k % len(nums)
+        if k == 0:
+            return nums
 
-        def revers(first_part, second_part):
-            while first_part < second_part:
-                nums[first_part], nums[second_part] = nums[second_part], nums[first_part]
-                first_part += 1
-                second_part -= 1
+        left, right = 0, len(nums) - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
 
-        nums.reverse()
-        revers(0, remain - 1)
-        revers(remain, len(nums) - 1)
+        left, right = 0, k - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+            
+        left, right = k, len(nums) - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+    
